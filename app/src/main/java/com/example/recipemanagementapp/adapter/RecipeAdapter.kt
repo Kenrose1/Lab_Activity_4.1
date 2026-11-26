@@ -1,5 +1,6 @@
 package com.example.recipemanagementapp.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +11,12 @@ import com.example.recipemanagementapp.model.RecipeListItem
 
 /** One adapter drives both row types: flavor headers and recipe rows. */
 class RecipeAdapter(
-    private val onRecipeClick: (RecipeListItem.RecipeRow) -> Unit
+    private val onRecipeClick: (RecipeListItem.RecipeRow) -> Unit,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items: List<RecipeListItem> = emptyList()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun submitItems(newItems: List<RecipeListItem>) {
         items = newItems
         notifyDataSetChanged()
@@ -55,7 +57,7 @@ class RecipeAdapter(
 
     private class RecipeViewHolder(
         itemView: View,
-        onRecipeClick: (RecipeListItem.RecipeRow) -> Unit
+        onRecipeClick: (RecipeListItem.RecipeRow) -> Unit,
     ) : RecyclerView.ViewHolder(itemView) {
         private val recipeTitle: TextView = itemView.findViewById(R.id.item_recipe_title)
         private val recipeDescription: TextView = itemView.findViewById(R.id.item_recipe_description)
@@ -63,7 +65,7 @@ class RecipeAdapter(
         init {
             itemView.setOnClickListener {
                 val item = currentRecipe
-                if (adapterPosition != RecyclerView.NO_POSITION && item != null) {
+                if ((adapterPosition != RecyclerView.NO_POSITION) && (item != null)) {
                     onRecipeClick(item)
                 }
             }

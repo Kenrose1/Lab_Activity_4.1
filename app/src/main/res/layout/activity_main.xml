@@ -49,6 +49,7 @@
 
     <LinearLayout
         android:id="@+id/main_recipe_buttons"
+        style="?android:attr/buttonBarStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -60,6 +61,7 @@
 
         <Button
             android:id="@+id/main_add_savory"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -67,6 +69,7 @@
 
         <Button
             android:id="@+id/main_add_sweet"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

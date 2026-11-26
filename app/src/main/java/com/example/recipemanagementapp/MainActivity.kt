@@ -33,7 +33,11 @@ class MainActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@MainActivity)
             this.adapter = this@MainActivity.adapter
             ItemTouchHelper(
-                SwipeToDeleteCallback(this@MainActivity, this@MainActivity.adapter, ::deleteRecipe)
+                SwipeToDeleteCallback(
+                    this@MainActivity,
+                    this@MainActivity.adapter,
+                    ::deleteRecipe,
+                )
             ).attachToRecyclerView(this)
         }
 
